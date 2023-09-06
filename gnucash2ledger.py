@@ -195,7 +195,7 @@ class Transaction:
                        for s in e.findall('trn:splits/trn:split', nss)]
 
     def toLedgerFormat(self, indent=0):
-        outPattern = ('{spaces}{date} {description}\n'
+        outPattern = ('{spaces}{date} * "" "{description}"\n'
                       '{splits}\n')
         splits = '\n'.join(s.toLedgerFormat(self.commodity, indent)
                            for s in self.splits)
